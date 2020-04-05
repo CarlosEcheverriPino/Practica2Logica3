@@ -18,8 +18,7 @@ public class Archivo {
     
     // estos arreglos almacenara los valores de las matrices y de las tripletas
     int valores[];
-    Tripleta Tripletas[] ;
-
+    
     public Archivo() {
     }
     
@@ -42,7 +41,7 @@ public class Archivo {
         }
         return texto;
     }
-    
+} 
  
     
        
@@ -56,7 +55,7 @@ public class Archivo {
         
         
   
-    }//fin metodo
+
 
 
     
