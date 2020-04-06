@@ -5,58 +5,48 @@
  */
 package practica2;
 
-import java.io.BufferedReader;
 import java.io.*;
-import java.util.Scanner;
-import javax.swing.JOptionPane;
+import java.util.*;
 
 /**
  *
  * @author Jacobo pulgarin
  */
 public class Archivo {
-    
-    // estos arreglos almacenara los valores de las matrices y de las tripletas
-    int valores[];
-    
-    public Archivo() {
-    }
-    
- // metodo por el cual se lee el archivo y se convierte en una cadena de caracteres
-    public String leerTxt(String direccion){
-        String texto = "";//---> variable que almacenara los datos en una linea de texto 
-        
-        try {
-            BufferedReader bf = new BufferedReader(new FileReader(direccion));//--->recorre el ciclo mientras haya datos 
-            String temp= "";
-            String bfread;
-            while ((bfread = bf.readLine()) != null){
-                temp = temp + bfread+" ";
-                
-            }
-            texto = temp;
-            
-        } catch (IOException e) {
-            System.out.println("No se encontro archivo");
+
+    public static void main(String[] args) throws IOException {
+
+        String text1;
+        String text2;
+
+        // Cargamos el buffer con el contenido del archivo
+        FileReader archivo = new FileReader("Archivo.txt");
+        //pasamos el archivo buffer al bufferReader
+        BufferedReader bufferArchivo = new BufferedReader(archivo);
+
+        // Aqui se lee la primera linea del archivo, si se quiere leer otra linea se copia
+        // y pega el mismo codigo debajo(supongo que se puede hacer con un For)
+        text1 = bufferArchivo.readLine();
+
+        System.out.println("La linea del archivo es: " + text1);
+        System.out.println("La linea tiene " + text1.length() + " caracteres");
+
+        System.out.println();
+        System.out.println("Separando la linea en trozos tenemos las siguientes palabras:");
+        System.out.println();
+
+        int numTokens = 0;
+
+        //Recibe un String en este caso text1 y el delimitador o separador de palabras que es la coma "," 
+        StringTokenizer tokenizadorDePalabras = new StringTokenizer(text1, ",");
+
+        // Ciclo para extraer las palabras de la linea separadas por ","
+        while (tokenizadorDePalabras.hasMoreTokens()) {
+            //lleva la palabra o token a la variable text2
+            text2 = tokenizadorDePalabras.nextToken();
+            numTokens++;
+            System.out.println("    Palabra " + numTokens + " es: " + text2);
         }
-        return texto;
+
     }
-} 
- 
-    
-       
-                    
-                    
-               
-               
-           
-        
-        
-        
-        
-  
-
-
-
-    
-
+}
