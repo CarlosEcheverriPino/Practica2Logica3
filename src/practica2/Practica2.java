@@ -5,6 +5,12 @@
  */
 package practica2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author CompucenterPC1
@@ -15,9 +21,15 @@ public class Practica2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("Hola");
-        System.out.println("Qu mas");
+        try {
+            FileReader entrada = new FileReader("I:\\Udea\\Logica y representacion 3\\Practica 2\\ArchivoBase.txt");
+            Archivo a = new Archivo();
+         //   System.out.println(a.dividirTxt(entrada));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Practica2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
     
 }

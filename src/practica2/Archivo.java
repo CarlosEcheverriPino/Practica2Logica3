@@ -10,7 +10,7 @@ import java.util.*;
 
 /**
  *
- * @author Jacobo pulgarin
+ * @author Esneider
  */
 public class Archivo {
 
