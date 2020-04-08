@@ -15,6 +15,14 @@ public class Persona {
    String id = "";
    String padre = "";
 
+    public String getPadre() {
+        return padre;
+    }
+
+    public void setPadre(String padre) {
+        this.padre = padre;
+    }
+
     public String getNombre() {
         return nombre;
     }

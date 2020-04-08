@@ -1,1 +1,2 @@
-Hola, persona, arepa, papa, covid19, chocolate, empanada, milo, mas empanada
+AC344,nombre,padre,
+AC355,name,a,
