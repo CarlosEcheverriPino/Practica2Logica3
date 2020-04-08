@@ -38,26 +38,28 @@ public class ArbolNarioListaGeneralizada {
         Persona dios = new Persona();
         dios.setNombre("Dios");
         raiz.setDato(dios);
+        raiz.setSw(0);
     }
     
-    public NodoNario ConfigurarNodo(Persona person){
+    public NodoNario AñadirNodo(Persona person){
         NodoNario persona = new NodoNario();
-        if(person. )
-        
+        if(raiz.getLiga()== null){
+            persona.setSw(0);
+            raiz.setLiga(persona);
+        }
+        else{
+            NodoNario recorrido = raiz.getLiga();
+            while(recorrido != null){
+                if(recorrido.getSw()== 1){
+                    
+                }
+            }
+        }
     }
     
     
     
-    public void AddPersona(){
-        Stack migas = new Stack();
-        //NodoNario ultimo;
-        NodoNario persona;
-        persona    
-        int sw = -1;
-        if(person.getPadre()== ""){
-            if()
-        }
-        }
+  
         
         
     }
@@ -65,4 +67,4 @@ public class ArbolNarioListaGeneralizada {
     
    
 
-}
+
