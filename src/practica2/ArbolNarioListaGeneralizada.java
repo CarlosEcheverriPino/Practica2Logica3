@@ -42,7 +42,7 @@ public class ArbolNarioListaGeneralizada {
     }
     
     public NodoNario AñadirNodo(Persona person){
-        NodoNario persona = new NodoNario();
+        NodoNario persona = new NodoNario(person);
         if(raiz.getLiga()== null){
             persona.setSw(0);
             raiz.setLiga(persona);
