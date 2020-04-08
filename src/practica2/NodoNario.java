@@ -29,11 +29,11 @@ package practica2;
 public class NodoNario {
 
     private int sw;
-    private Object dato;
+    private Persona persona;
     private NodoNario liga;
 
-    public NodoNario( Object d ) {
-        dato = d;
+    public NodoNario(Persona persona) {
+        this.persona = persona;
     }
 
     NodoNario() {
@@ -49,11 +49,11 @@ public class NodoNario {
     }
 
     public Object getDato() {
-        return dato;
+        return persona;
     }
 
-    public void setDato(Object dato) {
-        this.dato = dato;
+    public void setDato(Persona dato) {
+        this.persona = dato;
     }
 
     public NodoNario getLiga() {

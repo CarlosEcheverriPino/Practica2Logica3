@@ -10,10 +10,10 @@ package practica2;
  * @author CompucenterPC1
  */
 public class Persona {
-    
-   String nombre = "";
-   String id = "";
-   String padre = "";
+
+    String nombre = "";
+    String id = "";
+    String padre = "";
 
     public String getNombre() {
         return nombre;
@@ -30,10 +30,5 @@ public class Persona {
     public void setId(String id) {
         this.id = id;
     }
-   
-   
-   
-   
-    
-    
+
 }
