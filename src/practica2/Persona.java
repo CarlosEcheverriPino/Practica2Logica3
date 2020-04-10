@@ -39,6 +39,14 @@ public class Persona {
         this.id = id;
     }
    
+    /*public String Obtenerdato(NodoNario a){
+        Persona sisas;
+        sisas = (Persona)a.getDato();
+        String name ="";
+        name = sisas.getPadre();
+        return name;
+        
+    }*/
    
    
    

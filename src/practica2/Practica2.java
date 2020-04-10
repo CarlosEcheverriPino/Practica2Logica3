@@ -21,13 +21,18 @@ public class Practica2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){/* throws IOException {
         CargaTexto sisas = new CargaTexto();
         Persona ojo = new Persona();
         sisas.leer(ojo);
         System.out.println(ojo.getId()+ojo.getNombre()+ ojo.getPadre());
         
-        
-    }
+     
     
+    }
+    */
+       /* ArbolNarioListaGeneralizada arbol = new ArbolNarioListaGeneralizada();
+        System.out.println(arbol.nombreDios());*/
+
+    }
 }
