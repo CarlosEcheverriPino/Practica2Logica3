@@ -38,9 +38,12 @@ public class Practica2 {
        a.setId("01");a.setNombre("Jose");
        Persona b = new Persona();
        b.setId("02");b.setNombre("Juan");b.setPadre("Jose");
+       Persona c = new Persona();
+       c.setId("03");c.setNombre("Pedro");b.setPadre("Juan");
        x.addPersona(a);
         System.out.println("ya ingreso");
-       x.addPersona(b);
+       x.addPersona(c);
+       
        
     }
 }

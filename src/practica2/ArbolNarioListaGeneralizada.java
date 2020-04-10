@@ -56,6 +56,7 @@ public class ArbolNarioListaGeneralizada {
     
     public void addPersona(Persona a){
         NodoNario Nodo = new NodoNario(a);
+        Nodo.setSw(0);//SE AÑADE LA BANDERA DEL NODO INICIAL
         this.AñadirNodo(Nodo);
     }
     
@@ -79,7 +80,7 @@ public class ArbolNarioListaGeneralizada {
         }
         else{                               //->De  lo contrario sabemos que tiene un nodo por delante
             
-            if(muñeco.getPadre()==""){      //->Se pregunta si la persona no tiene padre por defecto
+            if(muñeco.getPadre().equals("")){      //->Se pregunta si la persona no tiene padre por defecto
                 while(recorrido.getLiga()!=null){//->Se recorre el primer nivel del arbol hasta el final
                     recorrido=recorrido.getLiga();
                 }
@@ -89,7 +90,7 @@ public class ArbolNarioListaGeneralizada {
             else{
             recorrido=recorrido.getLiga();  //->Avanzamos una posicion en la lista
             
-            while(recorrido != null ) {
+            while(recorrido.getLiga() != null ) {//////CAMBIO DE RECORRIDO A RECORRIDO.GETLIGA
             if(recorrido.getSw() == 1 ){    //->Tiene una sublista (Usar recursividad realizar otro metodo) 
                 recorrido = (NodoNario)recorrido.getDato();//->Nos movemos una posicion desde la liga del objeto
                 recursividad(recorrido);//->Enviamos el nodo raiz del subarbol al metodo recursividad
@@ -98,7 +99,7 @@ public class ArbolNarioListaGeneralizada {
             else{                           //->Si no tiene un sub arbol
                 
                 padreRecorrido = (Persona)recorrido.getDato(); //->Se carga la informacion de la persona ubicada en el nodo recorrido 
-                if(muñeco.getPadre()== padreRecorrido.getNombre()){//Se busca coincidencia en el padre          
+                if(muñeco.getPadre().equals(padreRecorrido.getNombre())){//Se busca coincidencia en el padre          
                   recorrido.setDato(recorrido);//->Se apunta al nodo recorrido desde el campo objeto
                   recorrido.setSw(1);       //->Si se encuentra cambiamos la configuracion del nodo actual 
                   recorrido.getDato();      //->Avanzamos una posicion desde la liga en el campo objeto
@@ -123,7 +124,7 @@ public class ArbolNarioListaGeneralizada {
         muñeco = (Persona)soport.getDato(); //->Se carga la informacion
         primero = puente;                   //->Posicionamos a primero en el nodo inicila del sub arbol
         padreRecorrido = (Persona)puente.getDato();
-        if(muñeco.getPadre()== padreRecorrido.getNombre()){//->Se compara los padres
+        if(muñeco.getPadre().equals(padreRecorrido.getNombre())){//->Se compara los padres
             while(primero.getLiga() != null){//->Haga mientras hayan nodos
                 primero = primero.getLiga();
             }
@@ -139,7 +140,7 @@ public class ArbolNarioListaGeneralizada {
             else{
                 primero.getLiga();
                 while(primero != null){
-                if(muñeco.getPadre()== padreRecorrido.getNombre()){
+                if(muñeco.getPadre().equals(padreRecorrido.getNombre())){
                     primero.setDato(primero);//->Se apunta al nodo recorrido desde el campo objeto
                     primero.setSw(1);       //->Si se encuentra cambiamos la configuracion del nodo actual 
                     primero.getDato();      //->Avanzamos una posicion desde la liga en el campo objeto
