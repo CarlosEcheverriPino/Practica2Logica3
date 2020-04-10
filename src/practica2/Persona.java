@@ -31,4 +31,12 @@ public class Persona {
         this.id = id;
     }
 
+    public String getPadre() {
+        return padre;
+    }
+
+    public void setPadre(String padre) {
+        this.padre = padre;
+    }
+
 }

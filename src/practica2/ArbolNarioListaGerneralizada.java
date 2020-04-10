@@ -43,8 +43,16 @@ public class ArbolNarioListaGerneralizada {
             }
         }
         }
-   
+    }
     
+    public NodoNario Buscar(String id){
+        
+        Stack migas = new Stack();
+        NodoNario Busqueda = new NodoNario();
+        
+        
+        
+        return null;
     }
     
     

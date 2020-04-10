@@ -25,15 +25,16 @@ package practica2;
 /**
  *
  * @author alejandroescobar
+ * @param <T>
  */
-public class NodoNario {
+public class NodoNario<T> {
 
     private int sw;
-    private Persona persona;
+    private Object dato;
     private NodoNario liga;
 
     public NodoNario(Persona persona) {
-        this.persona = persona;
+        this.dato = persona;
     }
 
     NodoNario() {
@@ -49,11 +50,11 @@ public class NodoNario {
     }
 
     public Object getDato() {
-        return persona;
+        return dato;
     }
 
     public void setDato(Persona dato) {
-        this.persona = dato;
+        this.dato = dato;
     }
 
     public NodoNario getLiga() {

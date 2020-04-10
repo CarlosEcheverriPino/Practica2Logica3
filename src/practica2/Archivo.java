@@ -13,9 +13,12 @@ import java.util.*;
  * @author Esneider
  */
 public class Archivo {
+    
+    String prueba="papa";
 
-    public static void main(String[] args) throws IOException {
-
+   public static void main(String[] args) throws IOException {
+       
+       
         String text1;
         String text2;
 
