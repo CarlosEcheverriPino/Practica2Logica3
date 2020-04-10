@@ -21,7 +21,7 @@ public class CargaTexto {
       
       
       
-      String text1;
+        String text1;
         String text2;
 
         // Cargamos el buffer con el contenido del archivo

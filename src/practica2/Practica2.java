@@ -33,6 +33,14 @@ public class Practica2 {
     */
        /* ArbolNarioListaGeneralizada arbol = new ArbolNarioListaGeneralizada();
         System.out.println(arbol.nombreDios());*/
-
+        ArbolNarioListaGeneralizada x = new ArbolNarioListaGeneralizada();
+       Persona a = new Persona();
+       a.setId("01");a.setNombre("Jose");
+       Persona b = new Persona();
+       b.setId("02");b.setNombre("Juan");b.setPadre("Jose");
+       x.addPersona(a);
+        System.out.println("ya ingreso");
+       x.addPersona(b);
+       
     }
 }
