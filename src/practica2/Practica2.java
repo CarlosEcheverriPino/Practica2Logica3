@@ -21,7 +21,7 @@ public class Practica2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args){/* throws IOException {
+    public static void main(String[] args) {/* throws IOException {
         CargaTexto sisas = new CargaTexto();
         Persona ojo = new Persona();
         sisas.leer(ojo);
@@ -30,20 +30,29 @@ public class Practica2 {
      
     
     }
-    */
-       /* ArbolNarioListaGeneralizada arbol = new ArbolNarioListaGeneralizada();
+         */
+ /* ArbolNarioListaGeneralizada arbol = new ArbolNarioListaGeneralizada();
         System.out.println(arbol.nombreDios());*/
         ArbolNarioListaGeneralizada x = new ArbolNarioListaGeneralizada();
-       Persona a = new Persona();
-       a.setId("01");a.setNombre("Jose");
-       Persona b = new Persona();
-       b.setId("02");b.setNombre("Juan");b.setPadre("Jose");
-       Persona c = new Persona();
-       c.setId("03");c.setNombre("Pedro");b.setPadre("Juan");
-       x.addPersona(a);
+        Persona a = new Persona();
+        a.setId("01");
+        a.setNombre("Jose");
+        Persona b = new Persona();
+        b.setId("02");
+        b.setNombre("Juan");
+        b.setPadre("");
+        Persona c = new Persona();
+        c.setId("03");
+        c.setNombre("Pedro");
+        c.setPadre("");
+        x.addPersona(a);
         System.out.println("ya ingreso");
-       x.addPersona(c);
-       
-       
+        x.addPersona(b);
+        System.out.println("ya ingreso 2");
+        x.addPersona(c);
+        System.out.println("ya ingreso 3");
+        
+        x.imprime();
+
     }
 }
