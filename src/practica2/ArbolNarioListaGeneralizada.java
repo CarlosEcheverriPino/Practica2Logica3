@@ -139,7 +139,7 @@ public class ArbolNarioListaGeneralizada {
         }
     }
     
-    public StringBuilder imprimir(){
+    /*public StringBuilder imprimir(){
         StringBuilder data = new StringBuilder();
         NodoNario recorrer;
         recorrer = raiz;
@@ -172,7 +172,7 @@ public class ArbolNarioListaGeneralizada {
         
         }
         return data;
-    }
+    }*/
 
     public void recursividad(NodoNario puente) {
         NodoNario primero;                  //->Se crea el nodo para movilizarce en el sub arbol
@@ -235,7 +235,9 @@ public class ArbolNarioListaGeneralizada {
 //------------------------------------------------------------------------------
 //si tiene padre o hay ramificacion
             else{
+                int fin = 0;
                 int cont = 0;
+                
                 while(recorrido.getLiga() != null){
                     cont ++;
                     recorrido = recorrido.getLiga();// avanzamon el la lista;
@@ -251,8 +253,7 @@ public class ArbolNarioListaGeneralizada {
                             auxiliar.setLiga(null);
                             recorrido.setDato(auxiliar);
                       	    auxiliar.setLiga(persona);
-                       	    //NodoNario rec = auxiliar;
-                       	    //rec.getLiga();
+                            fin = 1;
                             break;	
 		}
 	}
@@ -268,10 +269,16 @@ public class ArbolNarioListaGeneralizada {
                     if(recorrido.getLiga()== null && !pila.empty() && cont > 0 ){
                         recorrido = (NodoNario)pila.pop();
                         System.out.println("volvio a entrar");
+                        while(recorrido.getLiga()== null && !pila.empty()){
+                            recorrido = (NodoNario)pila.pop();
+                        }
                     }
                 }
-                
-                
+//------------------------------------------------------------------------------
+//Si luego del recorrido no se encontro el padre 
+                if(fin == 0){
+                    recorrido.setLiga(persona);
+                }  
             }
         }
         

@@ -41,9 +41,17 @@ public class Practica2 {
         Persona c = new Persona();
         c.setNombre("Toño");c.setId("3");c.setPadre("");
         Persona d = new Persona();
-        d.setNombre("Manuel");d.setId("4");d.setPadre("");
-        x.addPersona(a);x.addPersona(b);x.addPersona(c);x.addPersona(d);
-        System.out.println(x.imprimir());
+        d.setNombre("Manuel");d.setId("4");d.setPadre("Jose");
+        Persona e = new Persona();
+        e.setNombre("Pitter");e.setId("4");e.setPadre("Lula");
+        x.addPersona(a);
+        x.addPersona(b);
+        x.addPersona(c);
+        x.addPersona(d);
+        x.addPersona(e);
+        //System.out.println(x.imprimir());
+        NodoNario w = new NodoNario(a);
+        x.raiz = w;
    
 
     }
