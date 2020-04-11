@@ -36,7 +36,7 @@ public class ArbolNarioListaGeneralizada {
     public ArbolNarioListaGeneralizada() {
         Persona pDios = new Persona();
         pDios.setNombre("Dios");
-        pDios.setId("A00");
+        pDios.setId("0");
         NodoNario Dios = new NodoNario(pDios);
         Dios.setSw(0);
         Dios.setLiga(null);
@@ -56,7 +56,8 @@ public class ArbolNarioListaGeneralizada {
     public void addPersona(Persona a) {
         NodoNario Nodo = new NodoNario(a);
         Nodo.setSw(0);//SE AÑADE LA BANDERA DEL NODO INICIAL
-        this.AñadirNodo(Nodo);
+        Nodo.setLiga(null);
+        this.addNodo(Nodo);
     }
 
     public void Obtenerdato(NodoNario a) {
@@ -64,7 +65,7 @@ public class ArbolNarioListaGeneralizada {
         sisas = (Persona) a.getDato();
     }
 
-    public void AñadirNodo(NodoNario a) {
+    /*public void AñadirNodo(NodoNario a) {
         Stack migas = new Stack();
         soport = a;
         Persona nodoPersona;                  //->Recibe el objeto persona que viene del main
@@ -124,7 +125,7 @@ public class ArbolNarioListaGeneralizada {
             }//->Fin del while
         }
 
-    }
+    }*/
 
     public void imprime() {
         NodoNario recorrido = raiz;
@@ -136,6 +137,41 @@ public class ArbolNarioListaGeneralizada {
                 System.out.println("Nombre: " + mostrar.getNombre() + "\nId: " + mostrar.getId() + "\nPadre: " + mostrar.getPadre());
                 recorrido=recorrido.getLiga();
         }
+    }
+    
+    public StringBuilder imprimir(){
+        StringBuilder data = new StringBuilder();
+        NodoNario recorrer;
+        recorrer = raiz;
+        Persona muñeco;
+        muñeco = (Persona)recorrer.getDato();
+        data.append("(").append(muñeco.getNombre()).append(",").append(muñeco.getId()).append(",").append(muñeco.getPadre())
+                .append(",").append(recorrer.getSw()).append(")");
+        while(recorrer.getLiga() != null){
+            recorrer = recorrer.getLiga();
+            if(recorrer.getSw()==0){
+            muñeco = (Persona)recorrer.getDato();
+        data.append("(").append(muñeco.getNombre()).append(",").append(muñeco.getId()).append(",").append(muñeco.getPadre())
+                .append(",").append(recorrer.getSw()).append(")");}
+           else{
+                data.append("(");
+                NodoNario aux;
+                aux = recorrer;
+                aux = (NodoNario)recorrer.getDato();
+                muñeco = (Persona)aux.getDato();
+                data.append("(").append(muñeco.getNombre()).append(",").append(muñeco.getId()).append(",").append(muñeco.getPadre())
+                .append(",").append(aux.getSw()).append(")");
+                aux = aux.getLiga();
+                muñeco = (Persona)aux.getDato();
+                data.append("(").append(muñeco.getNombre()).append(",").append(muñeco.getId()).append(",").append(muñeco.getPadre())
+                .append(",").append(aux.getSw()).append(")");
+                aux = aux.getLiga();
+                data.append(")");
+                
+            }
+        
+        }
+        return data;
     }
 
     public void recursividad(NodoNario puente) {
@@ -175,6 +211,72 @@ public class ArbolNarioListaGeneralizada {
 
         }
 
+    }
+    
+    public void addNodo(NodoNario persona){
+        NodoNario recorrido = raiz;
+        Persona pnodo = (Persona)persona.getDato();
+        Persona pliga;
+        Stack pila = new Stack();
+//------------------------------------------------------------------------------
+//primera persona
+        if(recorrido.getLiga() == null){
+            recorrido.setLiga(persona);
+        }
+//------------------------------------------------------------------------------
+//si no tiene padre preestablecido        
+        else{
+            if(pnodo.getPadre().equals("")){
+                while(recorrido.getLiga() != null){
+                    recorrido = recorrido.getLiga();
+                }
+                recorrido.setLiga(persona);
+            }
+//------------------------------------------------------------------------------
+//si tiene padre o hay ramificacion
+            else{
+                int cont = 0;
+                while(recorrido.getLiga() != null){
+                    cont ++;
+                    recorrido = recorrido.getLiga();// avanzamon el la lista;
+//------------------------------------------------------------------------------
+//si encontro un padre y el padre no tiene mas hijos
+                   if(recorrido.getSw() == 0){
+                        pliga = (Persona)recorrido.getDato();
+                        if(pnodo.getPadre().equals(pliga.getNombre())){
+                            recorrido.setSw(1);
+                            Persona pauxiliar = new Persona();
+                            pauxiliar = pliga;
+                            NodoNario auxiliar = new NodoNario(pauxiliar);
+                            auxiliar.setLiga(null);
+                            recorrido.setDato(auxiliar);
+                      	    auxiliar.setLiga(persona);
+                       	    //NodoNario rec = auxiliar;
+                       	    //rec.getLiga();
+                            break;	
+		}
+	}
+//------------------------------------------------------------------------------
+//si encontramos una ramificacion
+                    if(recorrido.getSw() == 1){
+                        pila.add(recorrido);
+                        recorrido = (NodoNario)recorrido.getDato();
+                        cont = 0;
+                    }
+//------------------------------------------------------------------------------
+//si despues dela primera ronde de apilar un nodo llegamos al final de recorrido
+                    if(recorrido.getLiga()== null && !pila.empty() && cont > 0 ){
+                        recorrido = (NodoNario)pila.pop();
+                        System.out.println("volvio a entrar");
+                    }
+                }
+                
+                
+            }
+        }
+        
+        
+        
     }
 
 }

@@ -11,9 +11,9 @@ package practica2;
  */
 public class Persona {
     
-   String nombre = "";
-   String id = "";
-   String padre = "";
+   private String nombre = "";
+   private String id = "";
+   private String padre = "";
 
     public String getPadre() {
         return padre;
