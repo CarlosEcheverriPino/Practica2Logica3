@@ -53,6 +53,7 @@ public class Practica2 {
         Persona i = new Persona();
        // i.setNombre("norman");i.setId("9");i.setPadre("Lula");
         
+       
         x.addPersona(a);
         x.addPersona(b);
         x.addPersona(c);
@@ -61,7 +62,8 @@ public class Practica2 {
         x.addPersona(f);
         x.addPersona(g);
         x.addPersona(h);
-        System.out.println(x.imprimir());
+        x.addPersona(g);
+        //System.out.println(x.imprimir());
         NodoNario w = new NodoNario(a);
         x.raiz = w;
    

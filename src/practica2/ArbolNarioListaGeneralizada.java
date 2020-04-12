@@ -77,7 +77,7 @@ public class ArbolNarioListaGeneralizada {
         }
     }
 
-    public StringBuilder imprimir() {
+    /*public StringBuilder imprimir() {
         StringBuilder data = new StringBuilder();
         NodoNario recorrer;
         recorrer = raiz;
@@ -110,9 +110,13 @@ public class ArbolNarioListaGeneralizada {
 
         }
         return data;
-    }
+    }*/
 
     public void addNodo(NodoNario persona) {
+        if(nodoEsta(persona)){
+            System.out.println("Ya esta ");  
+        }
+        else{
         NodoNario recorrido = raiz;
         Persona pnodo = (Persona) persona.getDato();
         Persona pliga;
@@ -178,7 +182,6 @@ public class ArbolNarioListaGeneralizada {
 //si despues dela primera ronde de apilar un nodo llegamos al final de recorrido
                 if (recorrido.getLiga() == null && !pila.empty() && cont > 0) {
                     recorrido = (NodoNario) pila.pop();
-                    System.out.println("volvio a entrar");
                     while (recorrido.getLiga() == null && !pila.empty()) {
                         recorrido = (NodoNario) pila.pop();
                     }
@@ -199,5 +202,109 @@ public class ArbolNarioListaGeneralizada {
             }
         }
 
+    }
+    }
+    
+        /*public StringBuilder imprimir() {
+        StringBuilder data = new StringBuilder();
+        NodoNario recorrer;
+        recorrer = raiz;
+        Persona muñeco;
+        muñeco = (Persona) recorrer.getDato();
+        data.append("(").append(muñeco.getNombre()).append(",").append(muñeco.getId()).append(",").append(muñeco.getPadre())
+                .append(",").append(recorrer.getSw()).append(")");
+        while (recorrer.getLiga() != null) {
+            recorrer = recorrer.getLiga();
+            if (recorrer.getSw() == 0) {
+                muñeco = (Persona) recorrer.getDato();
+                data.append("(").append(muñeco.getNombre()).append(",").append(muñeco.getId()).append(",").append(muñeco.getPadre())
+                        .append(",").append(recorrer.getSw()).append(")");
+            } else {
+                data.append("(");
+                NodoNario aux;
+                aux = recorrer;
+                aux = (NodoNario) recorrer.getDato();
+                muñeco = (Persona) aux.getDato();
+                data.append("(").append(muñeco.getNombre()).append(",").append(muñeco.getId()).append(",").append(muñeco.getPadre())
+                        .append(",").append(aux.getSw()).append(")");
+                aux = aux.getLiga();
+                muñeco = (Persona) aux.getDato();
+                data.append("(").append(muñeco.getNombre()).append(",").append(muñeco.getId()).append(",").append(muñeco.getPadre())
+                        .append(",").append(aux.getSw()).append(")");
+                aux = aux.getLiga();
+                data.append(")");
+
+            }
+
+        }
+        return data;
+    }*/
+
+    public boolean nodoEsta(NodoNario persona) {
+        NodoNario recorrido = raiz;
+        Persona pnodo = (Persona) persona.getDato();
+        Persona pliga;
+        Stack pila = new Stack();
+        boolean encontrar = false;
+//------------------------------------------------------------------------------
+//primera persona
+        if (recorrido.getLiga() == null) {
+            encontrar = false;
+        }      
+        else {
+//------------------------------------------------------------------------------
+//inicie a recorrer la lista            
+                int fin = 0;
+                int cont = 0;
+
+                while (recorrido.getLiga() != null) {
+                    cont++;
+                    recorrido = recorrido.getLiga();// avanzamos el la lista;
+//------------------------------------------------------------------------------
+//si encontro un padre y el padre no tiene mas hijos
+                    if (recorrido.getSw() == 0) {
+                        pliga = (Persona) recorrido.getDato();
+                        if (pnodo.getNombre().equals(pliga.getNombre())) {
+                            encontrar = true;
+                            fin = 1;
+                            break;
+                        }
+                    }
+//------------------------------------------------------------------------------
+//si encontramos una ramificacion
+                    if (recorrido.getSw() == 1) {
+                        pila.add(recorrido);
+                        recorrido = (NodoNario) recorrido.getDato();
+                        pliga = (Persona) recorrido.getDato();
+
+                        if (pnodo.getNombre().equals(pliga.getNombre())) {
+                            encontrar = true;
+                            fin = 1;
+                            
+                        } else {
+                                cont = 0;
+                            
+                        }
+                    }
+                
+//------------------------------------------------------------------------------
+//si despues dela primera ronde de apilar un nodo llegamos al final de recorrido
+                if (recorrido.getLiga() == null && !pila.empty() && cont > 0) {
+                    recorrido = (NodoNario) pila.pop();
+                    while (recorrido.getLiga() == null && !pila.empty()) {
+                        recorrido = (NodoNario) pila.pop();
+                    }
+                }
+            }
+
+//------------------------------------------------------------------------------
+//Si luego del recorrido no se encontro el padre 
+                if (fin == 0) {
+                    encontrar = false;
+                    }
+
+                }
+
+    return encontrar;    
     }
 }
