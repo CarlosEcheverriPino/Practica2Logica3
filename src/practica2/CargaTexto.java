@@ -17,15 +17,16 @@ import java.util.StringTokenizer;
  */
 public class CargaTexto {
     
-  public void leer(Persona a) throws FileNotFoundException, IOException{
+   public void leer(ArbolNarioListaGeneralizada Lista) throws FileNotFoundException, IOException{
       
-      
+         Persona a = new Persona();
+         Lista = new ArbolNarioListaGeneralizada();
       
         String text1;
         String text2;
 
         // Cargamos el buffer con el contenido del archivo
-        FileReader archivo = new FileReader("Archivo.txt");
+        FileReader archivo = new FileReader("C:\\Users\\user\\Desktop\\proyetos java\\Practica2Logica3\\Personas.txt");
         //pasamos el archivo buffer al bufferReader
         BufferedReader bufferArchivo = new BufferedReader(archivo);
 
@@ -64,8 +65,14 @@ public class CargaTexto {
             text1 = bufferArchivo.readLine();
             if (text1 != null) {
                 tokenizadorDePalabras = new StringTokenizer(text1, ",");
-                System.out.println(a.getId()+a.getNombre()+ a.getPadre());
+                //System.out.println(a.getId()+a.getNombre()+ a.getPadre());
             cont=0;
+            
+            //Agrega las personas y las manda a el arbol
+            //Per.setId(id);
+            //Per.setNombre(nombre);
+            //Per.setPadre(padre);
+            Lista.addPersona(a);
             }
         }
         

@@ -1,0 +1,7 @@
+AC344, nombre padre, A332, nombre hijo
+AC344, nombre padre, A333, nombre hijo
+AC344, nombre padre, A332, nombre hijo
+AC344, nombre padre, A333, nombre hijo
+AC344, nombre padre, A332, nombre hijo
+AC344, nombre padre, A333, nombre hijo
+AC344, nombre padre, A333, nombre hijo
