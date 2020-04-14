@@ -53,7 +53,7 @@ public class NodoNario<T> {
         return dato;
     }
 
-    public void setDato(Persona dato) {
+    public void setDato(Object dato) {
         this.dato = dato;
     }
 
