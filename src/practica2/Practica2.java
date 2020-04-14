@@ -21,7 +21,7 @@ public class Practica2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {/* throws IOException {
+    public static void main(String[] args) throws IOException {/* throws IOException {
         CargaTexto sisas = new CargaTexto();
         Persona ojo = new Persona();
         sisas.leer(ojo);
@@ -34,7 +34,10 @@ public class Practica2 {
  /* ArbolNarioListaGeneralizada arbol = new ArbolNarioListaGeneralizada();
         System.out.println(arbol.nombreDios());*/
         ArbolNarioListaGeneralizada x = new ArbolNarioListaGeneralizada();
-        Persona a = new Persona();
+        //CargaTexto s = new CargaTexto();
+        //s.leer(x);
+        
+       Persona a = new Persona();
         a.setNombre("Pedro");a.setId("1");a.setPadre("");
         Persona b = new Persona();
         b.setNombre("Jose");b.setId("2");b.setPadre("");

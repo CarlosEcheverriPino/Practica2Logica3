@@ -1,2 +1,6 @@
-AC344,nombre,padre,
-AC355,name,a,
+1,Juan,,
+2,Jose,Juan,
+3,Tono,Trusqui,
+4,Petter,Juan,
+5,Pedro,Jose,
+6,Manuel,,

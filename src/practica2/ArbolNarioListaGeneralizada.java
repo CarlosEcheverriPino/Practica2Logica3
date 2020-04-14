@@ -114,7 +114,7 @@ public class ArbolNarioListaGeneralizada {
 
     public void addNodo(NodoNario persona) {
         if(nodoEsta(persona)){
-            System.out.println("Ya esta ");  
+            //System.out.println("Ya esta ");  
         }
         else{
         NodoNario recorrido = raiz;

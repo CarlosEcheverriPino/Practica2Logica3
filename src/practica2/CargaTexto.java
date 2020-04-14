@@ -16,11 +16,16 @@ import java.util.StringTokenizer;
  * @author CompucenterPC1
  */
 public class CargaTexto {
+
+    public CargaTexto() {
+    }
     
-  public void leer(Persona a) throws FileNotFoundException, IOException{
+    
+    
+  public void leer(ArbolNarioListaGeneralizada lista) throws FileNotFoundException, IOException{
       
       
-      
+        Persona a = new Persona();
         String text1;
         String text2;
 
@@ -62,9 +67,15 @@ public class CargaTexto {
             
             if (!tokenizadorDePalabras.hasMoreTokens()) {
             text1 = bufferArchivo.readLine();
+            System.out.println(a.getId()+a.getNombre()+ a.getPadre());
+            lista.addPersona(a);
+            
+            
+            cont=0;
             if (text1 != null) {
                 tokenizadorDePalabras = new StringTokenizer(text1, ",");
-                System.out.println(a.getId()+a.getNombre()+ a.getPadre());
+                //a.setId("");a.setNombre("");a.setPadre("");
+               // System.out.println(a.getId()+a.getNombre()+ a.getPadre());
             cont=0;
             }
         }
