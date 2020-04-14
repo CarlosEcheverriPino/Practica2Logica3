@@ -19,6 +19,27 @@ public class Practica2 {
         
         
         
+<<<<<<< Updated upstream
+=======
+       
+        x.addPersona(a);
+        x.addPersona(b);
+        x.addPersona(c);
+        x.addPersona(d);
+        x.addPersona(e);
+        x.addPersona(f);
+        x.addPersona(g);
+        x.addPersona(h);
+        x.addPersona(g);
+        //System.out.println(x.imprimir());
+        NodoNario w = new NodoNario(a);
+        x.raiz = w;
+        
+        String probando="a05,papa,cfueXcigarros";
+        x.crearPersona(probando);
+   
+
+>>>>>>> Stashed changes
     }
     
 }
