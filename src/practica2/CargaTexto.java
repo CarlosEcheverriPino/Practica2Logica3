@@ -25,7 +25,7 @@ public class CargaTexto {
   public void leer(ArbolNarioListaGeneralizada lista) throws FileNotFoundException, IOException{
       
       
-        Persona a = new Persona();
+        //Persona a = new Persona();
         String text1;
         String text2;
 
@@ -51,15 +51,12 @@ public class CargaTexto {
             text2 = tokenizadorDePalabras.nextToken();
             if(cont == 0){
                 id = text2;
-                a.setId(id);
             }
             if(cont == 1){
                 nombre = text2;
-                a.setNombre(nombre);
             }
             if(cont == 2){
                 padre = text2;
-                a.setPadre(padre);
             }
             cont ++;
                         
@@ -67,9 +64,10 @@ public class CargaTexto {
             
             if (!tokenizadorDePalabras.hasMoreTokens()) {
             text1 = bufferArchivo.readLine();
-            System.out.println(a.getId()+a.getNombre()+ a.getPadre());
+            Persona a = new Persona();
+            a.setId(id);a.setNombre(nombre);a.setPadre(padre);
             lista.addPersona(a);
-            
+            id = "";nombre = "";padre = "";
             
             cont=0;
             if (text1 != null) {

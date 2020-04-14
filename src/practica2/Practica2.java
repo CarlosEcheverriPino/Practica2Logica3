@@ -34,12 +34,12 @@ public class Practica2 {
  /* ArbolNarioListaGeneralizada arbol = new ArbolNarioListaGeneralizada();
         System.out.println(arbol.nombreDios());*/
         ArbolNarioListaGeneralizada x = new ArbolNarioListaGeneralizada();
-        //CargaTexto s = new CargaTexto();
-        //s.leer(x);
+        CargaTexto s = new CargaTexto();
+        s.leer(x);
         
        Persona a = new Persona();
         a.setNombre("Pedro");a.setId("1");a.setPadre("");
-        Persona b = new Persona();
+       /* Persona b = new Persona();
         b.setNombre("Jose");b.setId("2");b.setPadre("");
         Persona c = new Persona();
         c.setNombre("Toño");c.setId("3");c.setPadre("");
@@ -66,7 +66,7 @@ public class Practica2 {
         x.addPersona(g);
         x.addPersona(h);
         x.addPersona(g);
-        //System.out.println(x.imprimir());
+        //System.out.println(x.imprimir());*/
         NodoNario w = new NodoNario(a);
         x.raiz = w;
    
