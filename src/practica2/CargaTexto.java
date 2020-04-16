@@ -22,13 +22,13 @@ public class CargaTexto {
     
     
     // metedo que carga el archivo y lo divide 
-  public void leer(ArbolNarioListaGeneralizada lista) throws FileNotFoundException, IOException{
+  public void leer(ArbolNarioListaGeneralizada lista, String ruta) throws FileNotFoundException, IOException{
       
         String text1;
         String text2;
 
         // Cargamos el buffer con el contenido del archivo
-        FileReader archivo = new FileReader("Archivo.txt");
+        FileReader archivo = new FileReader(ruta);
         
         //pasamos el archivo buffer al bufferReader
         BufferedReader bufferArchivo = new BufferedReader(archivo);
