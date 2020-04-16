@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,55 +22,64 @@ public class Practica2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {/* throws IOException {
-        CargaTexto sisas = new CargaTexto();
-        Persona ojo = new Persona();
-        sisas.leer(ojo);
-        System.out.println(ojo.getId()+ojo.getNombre()+ ojo.getPadre());
+    public static void main(String[] args) {
+        int entrada = 0;
+        String Nombre;
+        String Id;
+        String Padre;
+        ArbolNarioListaGeneralizada arbol = new ArbolNarioListaGeneralizada();
+        
+         do{ //controlador del menu
+             //menu de opciones
+         
+        while(entrada < 1 ||entrada> 3){
+            entrada = Integer.parseInt(JOptionPane.showInputDialog("Seleccione una de las siguientes opciones:"
+            + "\n"+"1 - Ingresar una persona \n"
+            + "2 - Buscar una persona \n"
+            + "3 - salir "));
+            
+     if(entrada < 1 || entrada > 3){//--> controlador respuesta por fuera de rango.
+                JOptionPane.showMessageDialog(null,"Opcion no encontrada, favor eliga de nuevo.");
+            }         
+        }
+        switch(entrada){
+            
+            //si elige la opcion de ingresar
+            case 1:
+                Nombre = JOptionPane.showInputDialog("ingrese el nombre");
+                Id = JOptionPane.showInputDialog("Ingrese el id");
+                Padre = JOptionPane.showInputDialog("ingrese el id o el nombre del padre");
+                Persona per = new Persona();
+                per.setId(Id);
+                per.setNombre(Nombre);
+                per.setPadre(Padre);
+                arbol.addPersona(per);
+                break;
+                
+            case 2:
+                //si elige la opcion de buscar
+                String buscar =JOptionPane.showInputDialog("Ingrese la id a buscar");
+                if(buscar != null){
+                    arbol.buscar(buscar);
+                    
+                break; 
+                }
+        }
+        
+               if(entrada >= 1 && entrada <= 2){//-->reseteador de seleccion en caso de que la seleccion
+           entrada = 0;                   //este dentro del rango para poder ingresar al bucle.
+               }          
+    }while(entrada != 3);
+    JOptionPane.showMessageDialog(null,"Fin de la ejecucion.");
+    
+         }
+         
+}
+         
+
+
         
      
-    
-    }
-         */
- /* ArbolNarioListaGeneralizada arbol = new ArbolNarioListaGeneralizada();
-        System.out.println(arbol.nombreDios());*/
-        ArbolNarioListaGeneralizada x = new ArbolNarioListaGeneralizada();
-        CargaTexto s = new CargaTexto();
-        s.leer(x);
-        
-       Persona a = new Persona();
-        a.setNombre("Pedro");a.setId("1");a.setPadre("");
-       /* Persona b = new Persona();
-        b.setNombre("Jose");b.setId("2");b.setPadre("");
-        Persona c = new Persona();
-        c.setNombre("Toño");c.setId("3");c.setPadre("");
-        Persona d = new Persona();
-        d.setNombre("Manuel");d.setId("4");d.setPadre("Pedro");
-        Persona e = new Persona();
-        e.setNombre("Pitter");e.setId("5");e.setPadre("Pedro");
-        Persona f = new Persona();
-        f.setNombre("Carlos");f.setId("6");f.setPadre("Jose");
-        Persona g = new Persona();
-        g.setNombre("Andres");g.setId("7");g.setPadre("Jose");
-        Persona h = new Persona();
-        h.setNombre("covid");h.setId("8");h.setPadre("Carlos");
-        Persona i = new Persona();
-       // i.setNombre("norman");i.setId("9");i.setPadre("Lula");
-        
-       
-        x.addPersona(a);
-        x.addPersona(b);
-        x.addPersona(c);
-        x.addPersona(d);
-        x.addPersona(e);
-        x.addPersona(f);
-        x.addPersona(g);
-        x.addPersona(h);
-        x.addPersona(g);
-        //System.out.println(x.imprimir());*/
-        NodoNario w = new NodoNario(a);
-        x.raiz = w;
-   
+         
+ 
 
-    }
-}

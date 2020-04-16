@@ -21,7 +21,7 @@ public class CargaTexto {
     }
     
     
-    
+    // metedo que carga el archivo y lo divide 
   public void leer(ArbolNarioListaGeneralizada lista) throws FileNotFoundException, IOException{
       
         String text1;
@@ -29,6 +29,7 @@ public class CargaTexto {
 
         // Cargamos el buffer con el contenido del archivo
         FileReader archivo = new FileReader("Archivo.txt");
+        
         //pasamos el archivo buffer al bufferReader
         BufferedReader bufferArchivo = new BufferedReader(archivo);
 
@@ -45,8 +46,11 @@ public class CargaTexto {
         
         // Ciclo para extraer las palabras de la linea separadas por ","
         while (tokenizadorDePalabras.hasMoreTokens()) {
+            
             //lleva la palabra o token a la variable text2
             text2 = tokenizadorDePalabras.nextToken();
+            
+            //se separan la id de la perona, el nombre de la persona y el padre
             if(cont == 0){
                 id = text2;
             }
@@ -57,7 +61,9 @@ public class CargaTexto {
                 padre = text2;
             }
             cont ++;
-
+            
+                //verifica si el tokenizador tiene palabras, de ser asi manda  la informacion en las variables 
+                //y añade  las personas a el arbol 
             if (!tokenizadorDePalabras.hasMoreTokens()) {
             text1 = bufferArchivo.readLine();
             Persona a = new Persona();
@@ -66,6 +72,7 @@ public class CargaTexto {
             id = "";nombre = "";padre = "";
             
             cont=0;
+             //separa el texto  
             if (text1 != null) {
                 tokenizadorDePalabras = new StringTokenizer(text1, ",");
             cont=0;

@@ -27,9 +27,11 @@ package practica2;
  * @author alejandroescobar
  */
 public class NodoNario {
+    
+    
 
-    private int sw;
-    private Object dato;
+    private int sw;  //--> el sw indica, si es 0 el nodo no tiene hijos si es 1 tien hijos
+    private Object dato; // guarda la persona
     private NodoNario liga;
 
     public NodoNario( Object d ) {

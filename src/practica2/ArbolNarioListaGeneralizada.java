@@ -23,6 +23,7 @@
 package practica2;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,7 +33,8 @@ public class ArbolNarioListaGeneralizada {
 
     NodoNario raiz;
     NodoNario soport;
-
+    
+      // Constructor de la clase inicializa la variables Dios
     public ArbolNarioListaGeneralizada() {
         Persona pDios = new Persona();
         pDios.setNombre("Dios");
@@ -42,7 +44,8 @@ public class ArbolNarioListaGeneralizada {
         Dios.setLiga(null);
         raiz = Dios;
     }
-
+    
+      //metodo en el cua el primer nodo pasa a ser Dos
     public String nombreDios() {
         String nombre = "";
         Persona muñeco;
@@ -52,19 +55,20 @@ public class ArbolNarioListaGeneralizada {
         nombre = muñeco.getNombre();
         return nombre;
     }
-
+    
+     // añade una persona con sw 0 y lo manda a addNodo
     public void addPersona(Persona a) {
         NodoNario Nodo = new NodoNario(a);
         Nodo.setSw(0);//SE AÑADE LA BANDERA DEL NODO INICIAL
         Nodo.setLiga(null);
         this.addNodo(Nodo);
     }
-
+       //obtiene el dato del nodo que se le ingresa
     public void Obtenerdato(NodoNario a) {
         Persona sisas;
         sisas = (Persona) a.getDato();
     }
-
+   //recorre el arbol y lo imprime
     public void imprime() {
         NodoNario recorrido = raiz;
         Persona mostrar;
@@ -241,6 +245,7 @@ public class ArbolNarioListaGeneralizada {
     }*/
 
     public boolean nodoEsta(NodoNario persona) {
+        
         NodoNario recorrido = raiz;
         Persona pnodo = (Persona) persona.getDato();
         Persona pliga;
@@ -304,7 +309,64 @@ public class ArbolNarioListaGeneralizada {
                     }
 
                 }
+   
+    return encontrar;   
+    
+    }
+    public void buscar(String busc){
+        String Nombre = null, Id = null;
+        Persona pnodo = new Persona();
+        NodoNario rec = raiz;
+        Persona pliga;
+        Stack pila = new Stack();
+        while(rec!=null){
+           if (rec.getSw() == 0) {
+                        pliga = (Persona) rec.getDato();
+                        if (pliga.getId().equalsIgnoreCase(busc)) {
+                           // JOptionPane.showInputDialog(null,"encontrado");
+                            Nombre = pliga.getNombre();
+                            Id = pliga.getId();
+                           // JOptionPane.showMessageDialog(null, " Nombre = "+ Nombre+"/n Id = "+Id);
+                          break;
+                        }else{
+                        rec = rec.getLiga();
+                        }
+                        
+                        
+        
+        }
+           if (rec.getSw() == 1) {
+                        pila.add(rec);
+                        rec = (NodoNario) rec.getDato();
+                        pliga = (Persona) rec.getDato();
 
-    return encontrar;    
+                        if (pliga.getId().equalsIgnoreCase(busc)) {
+                            Nombre = pliga.getNombre();
+                            Id = pliga.getId();
+                            
+                          //  JOptionPane.showMessageDialog(null, " Nombre = "+ Nombre+"/n Id = "+Id);
+               
+                        } else{
+                        rec = rec.getLiga();
+                        }
+                          if (rec.getLiga() == null && !pila.empty() ) {
+                    rec = (NodoNario) pila.pop();
+                    while (rec.getLiga() == null && !pila.empty()) {
+                        rec = (NodoNario) pila.pop();
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "No encontrado");
+            
+        
+    }
+        //JOptionPane.showMessageDialog(null, " Nombre = "+ Nombre+"/n Id = "+Id);
+                  
+         JOptionPane.showMessageDialog(null, " Nombre = "+ Nombre+"      Id = "+Id);
+         
     }
 }
+    
+
+    
+

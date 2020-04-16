@@ -11,9 +11,11 @@ package practica2;
  */
 public class Persona {
     
-   private String nombre = "";
-   private String id = "";
-   private String padre = "";
+    //Esta clase almacena las variables de las personas y contiene sus respectiivos getter and setter
+    
+   private String nombre = "";   // nombre de la persona
+   private String id = "";      //Id de la persona
+   private String padre = "";  //nombre del padre
 
     public String getPadre() {
         return padre;
